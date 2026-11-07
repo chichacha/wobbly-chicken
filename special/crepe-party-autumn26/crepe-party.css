@@ -31,7 +31,7 @@ img { display:block; max-width:100%; }
 .hero-action:hover { transform:translateY(3px); box-shadow:0 2px 0 #96221b; }
 .hero-photo { margin:0; position:relative; transform:rotate(3deg); background:var(--paper); padding:12px 12px 23px; border-radius:18px; border:1px solid var(--line); box-shadow:0 25px 50px #58351f1a; }
 .hero-photo:before { content:''; position:absolute; height:20px; width:105px; top:-10px; left:calc(50% - 52px); background:#ffe5a0b8; transform:rotate(-6deg); }
-.hero-photo img { width:100%; border-radius:12px; aspect-ratio:1/1; object-fit:cover; }
+.hero-photo img { width:100%; height:auto; border-radius:12px; object-fit:contain; }
 .hero-photo figcaption { font-size:.85rem; color:var(--muted); margin-top:12px; text-align:center; }
 .hero-doodle { position:absolute; right:-14px; bottom:4%; color:var(--yellow); font-size:4rem; }
 .crepe-story { background:linear-gradient(180deg,#ffeddb 0%,#fff5e6 100%); padding:85px max(18px,calc((100vw - 1120px)/2)) 100px; }
@@ -76,7 +76,7 @@ img { display:block; max-width:100%; }
 .crepe-card:nth-child(3n+2) { transform:rotate(.7deg); }
 .crepe-card:nth-child(3n) { transform:rotate(-.55deg); }
 .crepe-card:hover { transform:rotate(0) translateY(-5px); box-shadow:0 13px 30px #61391b20; }
-.crepe-card img { width:100%; border-radius:10px; aspect-ratio:1/1.03; object-fit:cover; background:#f8ebd9; }
+.crepe-card img { width:100%; height:auto; border-radius:10px; object-fit:contain; background:#f8ebd9; }
 .crepe-card-body { display:block; padding:.7rem .4rem .1rem; }
 .crepe-card-category { font-size:.73rem; color:var(--red); font-weight:900; display:block; }
 .crepe-card-name { font-size:1rem; font-weight:900; display:block; margin:.25rem 0; overflow-wrap:anywhere; }
