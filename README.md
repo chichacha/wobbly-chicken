@@ -1,178 +1,135 @@
-# 🏮 居酒家あつこ — V1.8 (Google Sheets + 傾いたお品書き + A4)
+# 🏮 居酒家あつこ
 
 **小さなお店に、小さな遊び心。**
 
-A mobile-first, invitation-only home-izakaya microsite built using **Quarto + vanilla JS + CSS + two published Google Sheets CSV tabs**. It has **no prices**, no account system, no guest data, no Google Sheets API key, and **no QR code yet**.
+友達が集まる、小さな小さな居酒家「あつこ」。
 
-## What's included
+お店といっても、実は普通のおうち。  
+営業時間もメニューも、店主の気分次第です。🍶
 
-- **Home** (`index.qmd`) — Atsuko's logo, animated little noren, newest menu, owner note, dynamic categories, funny one-liners, random dish picker, friendly house rules.
-- **A4 printable menu** (`print.qmd`) — black-and-white, date-specific, printable from either the latest menu or an archive date; save as PDF via browser print dialog. Out-of-stock dishes are omitted.
-- **Archive** (`archive.qmd`) — a date picker and browsable preserved menus, with original category names and descriptions for each night.
-- **Mobile-first design** — readable on small phones; horizontal scroll for dynamic menu categories; touch-friendly controls; respects *reduced motion*.
-- **Branding** — handmade paper / brown / cheerful red, with the supplied 「あ」 favicon as an upper-left sticker and monochrome print accent. Google Fonts: Zen Maru Gothic + DM Sans (the original V1.6 pairing). The lightly tilted cards and 「あ」 favicon sticker remain.
+そんな居酒家あつこのために、ちょっと遊び心のあるWebサイトを作ってみました。
 
-## Preview the Quarto site
+## 🍢 できること
+
+- **本日のお品書き** — 今日の料理や飲み物を紹介。メニューは気まぐれに変わります。
+- **店主のひとこと** — あつこからのお知らせや、どうでもいいひとこと。
+- **気まぐれ一品** — 何を食べるか迷ったら、運におまかせ！
+- **お品書き帳** — 過去のメニューを日付ごとに振り返れます。
+- **A4印刷** — お品書きをPDFに保存して、コンビニで白黒印刷できます。
+
+スマホでも見やすいデザインです。📱
+
+もちろん、お値段は載っていません。
+
+## 📝 メニューの更新方法
+
+メニューは **Googleスプレッドシート** で管理しています。
+
+料理の追加や変更、カテゴリーの追加、店主のひとことの更新も、スプレッドシートを編集するだけ！
+
+Webサイトのコードを書き直す必要はありません。
+
+スプレッドシートは2つのタブに分かれています。
+
+| タブ | 内容 |
+|---|---|
+| `editions` | 開催日、メニューのタイトル、店主のひとことなど |
+| `menu` | 料理名、カテゴリー、ちょっと面白い説明文など |
+
+### 今日のメニューを変えたいとき
+
+`menu` タブで料理を追加・編集します。
+
+売り切れの場合は `available` を `no` に変更。
+
+新しいカテゴリーも自由に追加できます。「おつまみ」「麺」「お椀サイズ」など、何でもOK！
+
+変更は公開済みのGoogle Sheetsから自動的に読み込まれます。反映には数分かかる場合があります。
+
+### 過去のメニューを残したいとき 📖
+
+せっかくなので、過去のお品書きも残しておきます。
+
+1. `editions` タブで、今までの `current` を `archived` に変更。
+2. 新しい日付と `edition_id` で、次のお品書きを追加。`status` は `current` に。
+3. `menu` タブに新しい `edition_id` の料理を追加。
+
+**昔のメニューは消さずに残しておく**のがポイント。
+
+「あの日、何を食べたっけ？」を後から楽しめます。
+
+※ `current` にするのは常に1つだけ。`edition_id` は2つのタブで一致させます。
+
+## 🖨 お品書きを印刷したいとき
+
+サイトの「A4のお品書きを印刷・PDF保存」から印刷用ページを開きます。
+
+ブラウザで **PDFとして保存 → A4・縦向き・白黒** を選べばOK！
+
+あとはコンビニで印刷するだけ。
+
+過去のお品書きも印刷できます。
+
+## 💻 開発メモ
+
+このサイトは **Quarto + JavaScript + CSS** で作っています。
+
+メニューのデータは公開済みのGoogle SheetsからCSV形式で読み込んでいます。データベースやログイン機能はありません。
+
+### ローカルで確認
 
 ```bash
 quarto preview
 ```
 
-Or render the website for a static host:
+サイト全体を書き出す場合：
 
 ```bash
 quarto render
 ```
 
-Quarto builds the complete site in `docs/` (including `index.html`, `archive.html`, `print.html`, CSS, JS, fallback CSV and logo images). For a personal friends-only hobby site, you can publish this folder through a static hosting service such as GitHub Pages. **The site is not access-controlled**: do not put the home address or private guest details in public CSVs.
+完成したファイルは `docs/` に出力されます。
 
-**Without Quarto:** there are also self-contained markup previews of the two pages. From this directory run:
-
-```bash
-python3 -m http.server 8000
-```
-
-Then open:
-- http://localhost:8000/preview.html
-- http://localhost:8000/preview-archive.html
-- http://localhost:8000/preview-print.html
-
-The browser's `file://` mode won't reliably load CSV because it blocks local `fetch` requests. The preview HTML files are just development aids; the source of truth is the `.qmd` pages.
-
-## 🖨 Print a date-specific A4 お品書き (monochrome)
-
-1. Open the homepage and click **「A4のお品書きを印刷・PDF保存」**. Or open **お品書き帳**, select a past date, and click its print link.
-2. The site opens `print.html?edition=<edition_id>` (or `preview-print.html` when running the local preview). This reads the **same CSV data** as the rest of the site, so no duplicate print data is maintained.
-3. Click **「印刷・PDF保存」** in the print view. In your browser print dialog, choose **Save as PDF**, **A4**, **portrait**, and **black-and-white/grayscale**. Disable browser headers and footers if they appear. The print layout hides its own buttons.
-4. Take the saved PDF to a convenience-store printing service (コンビニ); select A4 black-and-white printing.
-
-The print layout is optimized for normal-size menus on **one A4 sheet**, but larger menus may naturally flow to a second page to avoid unreadably small text. The date comes from the `editions` tab — not the visitor's computer clock. Fictional archive examples display a サンプル disclaimer. If an item's `available` is set to `no`, it won't print.
-
-## How the Google Sheets data works (mirrored in local CSV fixtures)
-
-### 1. `editions` tab (`data/editions.csv` for local testing)
-
-| Column | Purpose |
-|---|---|
-| `edition_id` | Unique ID, e.g. `atsuko-20261107` (must match dish rows below) |
-| `date` | Gathering date as `YYYY-MM-DD` |
-| `title` | Little title for the night |
-| `owner_note` | 店主のひとこと; also preserved in the archive |
-| `noren_message` | Extra warm welcome under the note |
-| `status` | Exactly **one** row must say `current`; past gatherings say `archived` |
-| `demo` | `yes` makes the archive display a visible **サンプル** disclaimer |
-
-### 2. `menu` tab (`data/menu.csv` for local testing)
-
-| Column | Purpose |
-|---|---|
-| `edition_id` | Must match the edition for this dish |
-| `category` | Completely free text, e.g. `お通し`, `麺`, `お椀サイズ` |
-| `category_emoji` | Emoji beside the category (defaults to 🍽️) |
-| `category_note` | Optional one-liner about the section |
-| `item` | Dish or drink name |
-| `one_liner` | Funny little caption |
-| `available` | `yes` or blank = available; `no`, `×`, `売り切れ` = crossed out and excluded from the randomizer |
-| `category_order` | Display order of the category (numeric) |
-| `item_order` | Display order of the item within its category (numeric) |
-
-**Adding a category requires no changes to HTML, JS, or CSS:** just add rows with a new `category` string. The category links and cards appear automatically.
-
-## 📝 How Atsuko changes tonight's menu
-
-For a quick change **to the current evening**, edit rows with the current `edition_id` in the Google Sheets `menu` tab; change `owner_note` in the `editions` tab as needed. **No Quarto rebuild or GitHub push is required.** Google’s published CSV updates may take a few minutes.
-
-## 📖 How to preserve an evening and start a new one
-
-1. Open the Google Sheets `editions` tab and change the old `current` row's `status` to `archived`.
-2. Add a new row with a **new** `edition_id`, its date, title, note and `status=current`.
-3. **Do not delete or alter old dish rows.** In the Google Sheets `menu` tab, copy dishes you want to reuse into **new rows** using the new `edition_id`. Edit/add/remove only the new edition's rows.
-4. Wait for Google Sheets to republish the CSV tabs. The old rows become a permanent snapshot, visible at `archive.html`; the new edition becomes the homepage menu.
-
-**Important:** The current date is *not* calculated from the visitor's clock. The `current` flag controls which edition appears. If Atsuko opens on an irregular schedule, this is safer than guessing which menu should be today's.
-
-### Included mock data
-
-- **Current**: 2026-11-07 with **all 17 requested dishes** in お通し / お野菜 / お肉＆お魚 / ドリンク.
-- **Archive**: two completely **fictional** sample nights (2026-10-25 and 2026-10-10), visibly labelled サンプル and including examples of `麺`, `本日のスペシャル`, and `お椀サイズ`. Delete these rows when ready for real memories.
-
-The site reads **published Google Sheets tabs** by default. The two local UTF-8 CSV files are sample fixtures, not the live source.
-
-## Tests
-
-```bash
-node tests/smoke.test.cjs
-```
-
-## Structure
-
-```text
-izakaya-atsuko-v1.5/
-├── _quarto.yml
-├── index.qmd
-├── archive.qmd
-├── print.qmd
-├── _includes/scripts.html
-├── css/atsuko.css
-├── js/site.js
-├── data/editions.csv
-├── data/menu.csv
-├── assets/atsuko-logo.png
-├── assets/favicon.png
-├── preview-print.html        # A4 web preview
-├── preview.html              # Optional local preview without Quarto
-├── preview-archive.html      # Optional local preview without Quarto
-└── tests/smoke.test.cjs
-```
-
-### Later (not in V1.8)
-
-- Optionally switch to a private backend if you later want protected guest data or authenticated stamp cards
-- A printable QR code once the deployed URL is final
-- Guest stamps / guest cards (Atsuko would authorize a physical/digital 「あ」 stamp)
-
-*また来てね。次は何が出るか、店主にもわかりません。*
-
-## V1.8 — Google Sheets source and original fonts
-
-**Source tabs (already configured in `js/site.js`):**
-
-```js
-const SHEET_BASE =
-  "https://docs.google.com/spreadsheets/d/e/2PACX-1vSGbxO5nCUJlMOzt5tksGU_tM3uvCdgfMrFdxxqi6gdIimWY9mJmJNr_7dQg1tinfkGGiZy5hFmaUb0/pub";
-const DATA_URLS = {
-  editions: `${SHEET_BASE}?gid=0&single=true&output=csv`,
-  menu: `${SHEET_BASE}?gid=581424739&single=true&output=csv`
-};
-```
-
-The **first row of each tab must contain column headers**:
-
-- `editions` (`gid=0`): `edition_id,date,title,owner_note,noren_message,status,demo`
-- `menu` (`gid=581424739`): `edition_id,category,category_emoji,category_note,item,one_liner,available,category_order,item_order`
-
-Column order is flexible, but the header spelling matters. Exactly **one `editions` record should have `status=current`**, and at least one `menu` row must have the matching `edition_id`. Dates can use `YYYY-MM-DD` or `YYYY/M/D`; format date cells as **Plain text** in Sheets if you want to avoid automatic formatting. Old menu editions are preserved as separate rows.
-
-### Publishing settings
-
-In the Google spreadsheet, choose **File → Share → Publish to web**, select the `editions` tab as CSV and publish it; repeat for the `menu` tab. Confirm that **Automatically republish when changes are made** is enabled. Published tabs are public, so do not put private guest names, addresses, or personal information in either tab.
-
-When a browser opens the website it **fetches both published CSV feeds**. If Google Sheets is unreachable or the tab headings are invalid, the site visibly warns that it has fallen back to **local sample CSV**. It will **not allow printing a potentially stale fallback menu**. This is intentional: Atsuko should not accidentally print the wrong dishes.
-
-For development / offline checks, append `?source=local` to any page URL (such as `index.html?source=local`, `archive.html?source=local`, `print.html?source=local`). This explicitly loads the included local CSV fixtures instead of Google Sheets, allowing local print testing.
-
-### What stayed the same
-
-- Zen Maru Gothic (body) + DM Sans (small English labels), matching V1.6. **Yuji Boku and Yomogi were removed.**
-- Tilted, irregular menu boards and the favicon sticker at top left are kept from V1.7.
-- Today's menu, date archive, interactive random pick, noren, and A4 black-and-white printing all use the same data source.
-
-### Verification
+### テスト
 
 ```bash
 node tests/smoke.test.cjs
 node tests/sheets.test.cjs
-quarto preview
 ```
 
-The remote Google Sheet was supplied by the project owner. This build could not verify the live published CSV responses from this environment; use the site console/network tab and the `editions`/`menu` header list above if the page shows the visible fallback warning.
+### 主なファイル
+
+| ファイル | 役割 |
+|---|---|
+| `index.qmd` | 今日のお品書き |
+| `archive.qmd` | 過去のお品書き帳 |
+| `print.qmd` | A4印刷用 |
+| `js/site.js` | Google Sheetsとの接続や動き |
+| `css/atsuko.css` | デザイン |
+| `data/` | テスト用のサンプルCSV |
+
+Google Sheetsが読み込めない場合は、警告を表示してサンプルCSVに切り替わります。間違ったメニューを印刷しないよう、その場合は印刷できない仕組みです。
+
+開発中はURLに `?source=local` を付けると、サンプルCSVで動作確認できます。
+
+### Google Sheetsについて
+
+スプレッドシートの各タブは「ファイル → 共有 → ウェブに公開」からCSV形式で公開しています。接続先URLは `js/site.js` で設定しています。
+
+公開したデータは誰でも見られるため、住所やゲストの個人情報は入れないようにします。
+
+## 🌱 いつかやってみたいこと
+
+- QRコード付きの小さなお品書き
+- 常連さん向けのスタンプカード
+- 店主が押してくれる赤い「あ」スタンプ
+
+どこまで作るかは、もちろん気分次第。😄
+
+---
+
+**営業時間：** 店主の気分次第  
+**定休日：** だいたい不定休  
+**予約：** 店主と仲良くなること
+
+🍶 **また来てね。次は何が出るか、店主にもわかりません。**
