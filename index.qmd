@@ -46,7 +46,9 @@ format:
 
     <section class="note-area" aria-labelledby="note-heading">
       <div class="note-card">
-        <div class="note-stamp" aria-hidden="true">あ</div>
+        <div class="note-stamp" aria-hidden="true">
+          <img src="assets/favicon.png" alt="">
+        </div>
         <div>
           <p class="tiny-label">FROM THE HOST</p>
           <h2 id="note-heading">店主のひとこと</h2>
@@ -86,16 +88,31 @@ format:
       </div>
     </section>
 
+    
     <section class="house-rules" aria-labelledby="house-rules-title">
       <p class="eyebrow">あつこ式・営業案内</p>
-      <h2 id="house-rules-title">だいたい、そんな感じ。</h2>
+      <h2 id="house-rules-title">開いてたら、ラッキー。</h2>
+
       <dl class="rules-list">
-        <div><dt>営業時間</dt><dd>店主の気分次第</dd></div>
-        <div><dt>定休日</dt><dd>だいたい不定休</dd></div>
-        <div><dt>予約</dt><dd>店主と仲良くなること</dd></div>
+        <div>
+          <dt>営業時間</dt>
+          <dd>店主の気分次第</dd>
+        </div>
+        <div>
+          <dt>定休日</dt>
+          <dd>だいたい定休</dd>
+        </div>
+        <div>
+          <dt>予約</dt>
+          <dd>店主と仲良くなること</dd>
+        </div>
       </dl>
-      <p class="rules-footnote">場所は、知っている人だけのひみつ。🤫</p>
+
+      <p class="rules-footnote">
+        ※ 営業日については、店主も把握しておりません。🍶
+      </p>
     </section>
+
   </main>
 
   <footer class="site-footer">

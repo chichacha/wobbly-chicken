@@ -417,3 +417,12 @@ body.atsuko-print-page { background: #eae7e1; color: #111; }
   filter: grayscale(1) contrast(2.2);
 }
 @media print { .print-brand-icon { filter: grayscale(1) contrast(2.2) !important; } }
+
+
+
+.note-stamp img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
