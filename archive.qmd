@@ -1,0 +1,59 @@
+---
+title: "居酒家あつこ | お品書き帳"
+lang: ja
+format:
+  html:
+    minimal: true
+    toc: false
+    css: css/atsuko.css
+    title-block-style: none
+    page-layout: full
+    include-after-body: _includes/scripts.html
+---
+
+```{=html}
+<div class="atsuko-site" id="top" data-page="archive">
+  <header class="site-header">
+    <a class="wordmark" href="index.html" aria-label="居酒家あつこ、トップページへ">
+      <img src="assets/favicon.png" alt="" width="34" height="34" />
+      <span>居酒家 <strong>あつこ</strong></span>
+    </a>
+    <nav class="header-nav" aria-label="メインナビゲーション">
+      <a class="header-link" href="index.html">お品書き</a>
+      <a class="header-link is-active" href="archive.html" aria-current="page">お品書き帳</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="archive-hero" aria-labelledby="archive-heading">
+      <span class="archive-illustration" aria-hidden="true">📖</span>
+      <p class="eyebrow">LITTLE MEMORIES</p>
+      <h1 id="archive-heading">あつこのお品書き帳</h1>
+      <p>あの日、何を食べたっけ？<br />楽しかった夜の、ちいさな記録。</p>
+      <a class="back-link" href="index.html">← 最新のお品書きへ</a>
+    </section>
+
+    <section class="archive-area" aria-labelledby="archive-list-title">
+      <div class="archive-layout">
+        <aside class="archive-picker">
+          <h2 id="archive-list-title">日付からめくる</h2>
+          <label for="archive-date-select">お品書きを選ぶ</label>
+          <select id="archive-date-select" disabled><option>読み込み中…</option></select>
+          <div id="archive-date-list" class="archive-date-list" aria-label="過去のお品書き"></div>
+        </aside>
+
+        <div class="archive-view" aria-live="polite" aria-atomic="true">
+          <p id="archive-status" class="menu-status" role="status">お品書き帳を開いています… 📖</p>
+          <div id="archive-detail"></div>
+        </div>
+      </div>
+      <p class="archive-footnote">昔のメニューは、その日のまま大切に。新しい献立になっても消えません。</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <span>居酒家あつこ <span aria-hidden="true">✳</span> 小さなお店に、小さな遊び心。</span>
+    <a href="#top">上にもどる ↑</a>
+  </footer>
+</div>
+```

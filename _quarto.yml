@@ -1,0 +1,15 @@
+project:
+  type: website
+  output-dir: docs
+  resources:
+    - data/*.csv
+    - js/*.js
+    - assets/*.png
+
+website:
+  title: "居酒家あつこ"
+  navbar: false
+  favicon: assets/favicon.png
+
+execute:
+  freeze: auto

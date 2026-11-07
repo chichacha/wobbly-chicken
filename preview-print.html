@@ -1,0 +1,29 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>居酒家あつこ — 印刷プレビュー</title><link rel="stylesheet" href="css/atsuko.css"><script src="js/site.js" defer></script></head><body><div data-page="print" class="print-site">
+  <div class="print-actions" role="toolbar" aria-label="お品書き印刷操作">
+    <a id="print-back" href="preview.html">← お品書きにもどる</a>
+    <button id="print-button" type="button" disabled>🖨 印刷・PDF保存</button>
+    <p class="print-help">A4・白黒がおすすめ。印刷画面で「PDFに保存」を選べます。</p>
+  </div>
+  <p id="print-status" class="print-status" role="status" aria-live="polite">お品書きを準備しています…</p>
+  <main id="print-sheet" class="print-sheet" aria-label="A4印刷用のお品書き" hidden>
+    <header class="print-head">
+      <div>
+        <p class="print-brand"><img src="assets/favicon.png" class="print-brand-icon" alt="" width="32" height="32" /> 居酒家 <span>あつこ</span></p>
+        <p class="print-tagline">小さなお店に、小さな遊び心。</p>
+      </div>
+      <div class="print-head-label">おうち居酒家</div>
+    </header>
+    <div class="print-cover">
+      <h1 class="print-main-title">お品書き</h1>
+      <p id="print-edition-title" class="print-edition-title"></p>
+      <p id="print-date" class="print-date"></p>
+      <hr class="print-rule" />
+    </div>
+    <p id="print-demo" class="print-demo" hidden>※ サンプルデータ（架空のメニュー）です</p>
+    <div id="print-categories" class="print-categories"></div>
+    <footer class="print-bottom">
+      <p class="print-greeting">おいしいものをちょっとずつ。おしゃべりは、たっぷりと。</p>
+      <p>店主の気分次第で、献立も少し変わるかもしれません。</p>
+    </footer>
+  </main>
+</div></body></html>
