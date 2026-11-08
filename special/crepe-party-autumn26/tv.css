@@ -1,0 +1,113 @@
+/* 居酒家あつこ — Crepe Party TV, 16:9-first, dependency-free. */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;600;700&family=Zen+Maru+Gothic:wght@400;500;700;900&display=swap');
+:root {
+  --tv-paper: #fff8ed;
+  --tv-paper-deep: #f9e8cc;
+  --tv-white: #fffdfa;
+  --tv-ink: #572a17;
+  --tv-muted: #926c51;
+  --tv-red: #c80718;
+  --tv-yellow: #ffbb21;
+  --tv-stroke: #ebd5b6;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; width: 100%; min-height: 100%; }
+body {
+  background: var(--tv-paper);
+  color: var(--tv-ink);
+  font-family: 'Zen Maru Gothic', 'Hiragino Maru Gothic ProN', 'Yu Gothic', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+#title-block-header, #quarto-header, #quarto-footer { display: none; }
+.atsuko-tv { width: 100%; min-height: 100dvh; }
+.tv-display { display: grid; grid-template-columns: minmax(0, 38%) minmax(0, 62%); min-height: 100dvh; }
+.tv-brand {
+  background: radial-gradient(ellipse at 45% 35%, #fffefa 8%, var(--tv-paper) 70%);
+  padding: clamp(20px, 3vw, 65px) clamp(24px, 3vw, 64px) 18px;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  justify-content: space-between;
+  border-right: 3px dashed #e9d2b5;
+}
+.tv-brand-inner { display: flex; flex-direction: column; align-items: center; text-align: center; min-width: 0; }
+.tv-eyebrow, .tv-showcase-label {
+  font: 700 clamp(.69rem, 1vw, 1rem) 'DM Sans', sans-serif;
+  letter-spacing: .17em;
+  color: var(--tv-red);
+}
+.tv-eyebrow span { color: var(--tv-yellow); }
+.tv-logo {
+  display: block; width: min(100%, 370px); max-height: 36vh;
+  height: auto; object-fit: contain; margin: 10px auto 0;
+  mix-blend-mode: multiply;
+}
+.tv-kicker { margin: 0; font-size: clamp(1.15rem, 2vw, 2.25rem); line-height: 1.45; font-weight: 700; }
+.tv-kicker strong { color: var(--tv-red); }
+.tv-intro { margin: 10px 0 0; color: var(--tv-muted); line-height: 1.7; font-size: clamp(.82rem, 1.14vw, 1.28rem); }
+.tv-invite {
+  margin: clamp(15px, 3vh, 40px) auto 0; display: flex; align-items: center;
+  justify-content: center; gap: clamp(12px, 1.3vw, 21px);
+  background: var(--tv-white); border: 2px dashed var(--tv-stroke);
+  border-radius: 20px; padding: clamp(10px, 1.3vw, 20px);
+  max-width: 100%; box-shadow: 0 6px 20px rgba(88,42,21,.05);
+}
+.tv-qr { width: clamp(100px, 10vw, 165px); height: auto; aspect-ratio: 1; flex: 0 0 auto; background: white; }
+.tv-invite-copy { display: flex; flex-direction: column; gap: 8px; text-align: left; min-width: 0; }
+.tv-invite-copy strong { font-size: clamp(.8rem, 1.3vw, 1.4rem); }
+.tv-invite-copy span { color: var(--tv-muted); font-size: clamp(.72rem, .98vw, 1.08rem); line-height: 1.6; }
+.tv-gallery-url { display: inline-block; margin-top: 12px; font-size: clamp(.76rem, 1vw, 1.05rem); font-weight: 900; color: var(--tv-red); text-underline-offset: 4px; }
+.tv-brand-foot { color: var(--tv-muted); font-size: clamp(.7rem, .95vw, 1rem); text-align: center; margin: 20px 0 0; }
+.tv-showcase {
+  display: flex; flex-direction: column; min-width: 0; min-height: 0;
+  background: var(--tv-paper-deep); padding: clamp(18px, 3vw, 48px) clamp(18px, 3vw, 52px);
+  gap: clamp(12px, 1.2vh, 20px);
+}
+.tv-showcase-top { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
+.tv-count { color: var(--tv-red); white-space: nowrap; font: 700 clamp(.8rem, 1.25vw, 1.25rem) 'DM Sans', sans-serif; letter-spacing: .08em; }
+.tv-photo-frame {
+  position: relative; flex: 1 1 auto; min-height: 0; overflow: hidden;
+  background: var(--tv-white); border: 2px solid var(--tv-stroke);
+  border-radius: 27px 17px 28px 18px;
+  box-shadow: 3px 5px 0 rgba(155,95,45,.10), 0 12px 28px rgba(88,42,21,.07);
+}
+.tv-photo {
+  display: block; position: absolute; inset: 0;
+  width: 100%; height: 100%; object-fit: contain;
+  padding: clamp(8px, 1.2vw, 18px);
+  opacity: 0; transition: opacity 750ms ease; background: var(--tv-white);
+}
+.tv-photo.is-visible { opacity: 1; }
+.tv-status { position: absolute; inset: 0; display: grid; place-items: center; z-index: 2; padding: 20px; text-align: center; background: var(--tv-white); color: var(--tv-muted); font-size: 1.1rem; font-weight: 700; }
+.tv-status[hidden] { display: none; }
+.tv-meta { display: flex; align-items: center; justify-content: space-between; gap: 20px; min-height: 78px; }
+.tv-meta-copy { min-width: 0; }
+.tv-category { display: inline-block; background: var(--tv-white); border: 1px solid #d9a878; color: var(--tv-red); border-radius: 100px; font-size: clamp(.8rem, 1.2vw, 1.15rem); font-weight: 900; padding: 4px 13px; margin: 0 0 8px; }
+.tv-caption { margin: 0; font-size: clamp(.9rem, 1.5vw, 1.7rem); font-weight: 900; line-height: 1.4; }
+.tv-controls { display: flex; align-items: center; gap: 7px; flex: 0 0 auto; }
+.tv-controls button { border: 1px solid #d9a878; border-radius: 100px; background: var(--tv-white); color: var(--tv-ink); min-height: 43px; padding: 8px 13px; font: 900 clamp(.75rem, .9vw, 1rem) inherit; cursor: pointer; }
+.tv-controls button:hover { background: #ffe3b4; }
+.tv-controls button:focus-visible, .tv-gallery-url:focus-visible { outline: 3px solid var(--tv-red); outline-offset: 3px; }
+.tv-progress-track { width: 100%; height: 7px; border-radius: 10px; overflow: hidden; background: #e7caa5; }
+.tv-progress-fill { width: 100%; height: 100%; background: var(--tv-red); transform-origin: left; transform: scaleX(0); }
+@keyframes tv-fill { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+@media (max-width: 900px), (orientation: portrait) {
+  .tv-display { grid-template-columns: minmax(0, 1fr); }
+  .tv-brand { padding: 24px 20px; border-right: 0; border-bottom: 3px dashed #e9d2b5; }
+  .tv-logo { width: min(245px, 55vw); max-height: 220px; }
+  .tv-kicker { font-size: 1.35rem; }
+  .tv-intro { font-size: .9rem; }
+  .tv-invite { margin-top: 14px; padding: 12px; }
+  .tv-qr { width: 102px; }
+  .tv-brand-foot { margin-top: 14px; }
+  .tv-showcase { padding: 22px 16px 25px; }
+  .tv-photo-frame { flex: none; height: min(65vh, 530px); }
+  .tv-meta { flex-wrap: wrap; }
+  .tv-caption { font-size: 1.08rem; }
+}
+@media (max-width: 450px) {
+  .tv-invite-copy strong { font-size: .84rem; }
+  .tv-invite-copy span { font-size: .76rem; }
+  .tv-photo-frame { height: 53vh; }
+}
+@media (prefers-reduced-motion: reduce) { .tv-photo { transition: none; } }
