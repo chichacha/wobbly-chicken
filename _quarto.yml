@@ -10,6 +10,7 @@ project:
     - special/crepe-party-autumn26/crepe-party.js
     - special/crepe-party-autumn26/tv.js
     - special/crepe-party-autumn26/gallery-qr.svg
+    - special/crepe-party-autumn26/crepe_party_atsuko.*
 
 website:
   title: "居酒家あつこ"
