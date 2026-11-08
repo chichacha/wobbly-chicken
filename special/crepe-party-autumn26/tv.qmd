@@ -1,0 +1,69 @@
+---
+title: "出張あつこ | クレープパーティー TV"
+lang: ja
+format:
+  html:
+    minimal: true
+    toc: false
+    css: tv.css
+    title-block: false
+    page-layout: full
+---
+
+```{=html}
+<div class="atsuko-tv" id="tv-top">
+  <main class="tv-display" aria-label="出張あつこ・クレープパーティーのテレビ用スライドショー">
+    <aside class="tv-brand">
+      <div class="tv-brand-inner">
+        <p class="tv-eyebrow">2026 AUTUMN SPECIAL <span aria-hidden="true">✳</span></p>
+        <img class="tv-logo" src="../../assets/atsuko-logo.png"
+             width="695" height="607" alt="居酒家あつこ" />
+        <p class="tv-kicker">きょうは、<strong>クレープ日和。</strong></p>
+        <p class="tv-intro">甘いのも、しょっぱいのも。<br>どれにしようか、選んでね。🥞</p>
+        <div class="tv-invite">
+          <img class="tv-qr" src="gallery-qr.svg"
+               width="144" height="144" alt="クレープ図鑑をスマホで開くQRコード" />
+          <div class="tv-invite-copy">
+            <strong>スマホで図鑑を見る</strong>
+            <span>15種類のクレープを<br>じっくり見てね 📱</span>
+          </div>
+        </div>
+        <a class="tv-gallery-url" href="https://chichacha.github.io/wobbly-chicken/special/crepe-party-autumn26/">
+          クレープ図鑑へ →
+        </a>
+      </div>
+      <p class="tv-brand-foot">🏮 小さなお店に、小さな遊び心。</p>
+    </aside>
+
+    <section class="tv-showcase" aria-label="15種類のクレープのスライドショー">
+      <div class="tv-showcase-top">
+        <span class="tv-showcase-label">THE CREPE COLLECTION</span>
+        <span class="tv-count" id="tv-count">-- / 15</span>
+      </div>
+      <div class="tv-photo-frame" id="tv-photo-frame">
+        <img class="tv-photo is-visible" id="tv-photo-a"
+             alt="" decoding="async" />
+        <img class="tv-photo" id="tv-photo-b"
+             alt="" decoding="async" />
+        <div class="tv-status" id="tv-status" role="status">クレープを準備しています… 🥞</div>
+      </div>
+      <div class="tv-meta">
+        <div class="tv-meta-copy">
+          <p class="tv-category" id="tv-category">出張あつこ</p>
+          <p class="tv-caption" id="tv-caption">今日の主役は、たぶん15人。</p>
+        </div>
+        <div class="tv-controls" aria-label="スライド操作">
+          <button type="button" id="tv-prev" aria-label="前のクレープ">←</button>
+          <button type="button" id="tv-toggle" aria-pressed="false">一時停止 Ⅱ</button>
+          <button type="button" id="tv-next" aria-label="次のクレープ">→</button>
+        </div>
+      </div>
+      <div class="tv-progress-track" aria-hidden="true">
+        <div class="tv-progress-fill" id="tv-progress"></div>
+      </div>
+    </section>
+  </main>
+  <noscript>JavaScriptを有効にすると、クレープが10秒ごとに切り替わります。</noscript>
+</div>
+<script src="tv.js" defer></script>
+```
