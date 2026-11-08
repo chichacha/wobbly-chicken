@@ -144,3 +144,18 @@ body.crepe-modal-open { overflow:hidden; }
   *, *::before, *::after { scroll-behavior:auto !important; transition:none !important; animation:none !important; }
   .story-step { opacity:1; }
 }
+
+
+/* Hide Quarto's automatic page title */
+#title-block-header {
+  display: none;
+}
+
+/* Hide duplicate crepe names */
+.crepe-card-name {
+  display: none;
+}
+
+.crepe-card-category {
+  display: none;
+}

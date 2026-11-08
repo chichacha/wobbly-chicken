@@ -7,6 +7,7 @@ format:
     toc: false
     css: crepe-party.css
     title-block-style: none
+    title-block: false
     page-layout: full
 ---
 

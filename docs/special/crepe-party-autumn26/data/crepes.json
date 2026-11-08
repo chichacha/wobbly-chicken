@@ -1,0 +1,267 @@
+{
+  "title": "出張あつこ：クレープパーティー",
+  "subtitle": "秋の特集 2026",
+  "note": "具材の組み合わせは編集用のたたき台です。実際の材料に合わせて自由に直してください。",
+  "categories": [
+    {
+      "id": "お食事系",
+      "label": "🥬 お食事系",
+      "order": 1
+    },
+    {
+      "id": "アレンジ系",
+      "label": "🥓 アレンジ系",
+      "order": 2
+    },
+    {
+      "id": "デザート系",
+      "label": "🍓 デザート系",
+      "order": 3
+    }
+  ],
+  "crepes": [
+    {
+      "id": "01-egg-avocado",
+      "name": "たまごアボカドクレープ",
+      "category": "お食事系",
+      "image": "images/01_たまごアボカド.png",
+      "ingredients": [
+        "たまごサラダ",
+        "アボカド",
+        "レタス"
+      ],
+      "optional": [
+        "たらこマヨ"
+      ],
+      "caption": "たまごとアボカド、平和な組み合わせ。",
+      "alt": "たまごアボカドクレープのクレープ写真",
+      "order": 1
+    },
+    {
+      "id": "02-crab-salad",
+      "name": "カニサラダクレープ",
+      "category": "お食事系",
+      "image": "images/02_カニサラダ.png",
+      "ingredients": [
+        "カニサラダ",
+        "きゅうり",
+        "レタス"
+      ],
+      "optional": [],
+      "caption": "ちょっとごちそう気分。",
+      "alt": "カニサラダクレープのクレープ写真",
+      "order": 2
+    },
+    {
+      "id": "03-smoked-salmon",
+      "name": "スモークサーモンクリームクレープ",
+      "category": "お食事系",
+      "image": "images/03_スモークサーモンクリームクレープ.png",
+      "ingredients": [
+        "スモークサーモン",
+        "クリームチーズ",
+        "きゅうり"
+      ],
+      "optional": [
+        "紫蘇"
+      ],
+      "caption": "サーモン、今日は包まれる側。",
+      "alt": "スモークサーモンクリームクレープのクレープ写真",
+      "order": 3
+    },
+    {
+      "id": "04-shrimp-avocado",
+      "name": "えびアボカドクレープ",
+      "category": "お食事系",
+      "image": "images/04_えびアボカド.png",
+      "ingredients": [
+        "えび",
+        "アボカド",
+        "レタス"
+      ],
+      "optional": [
+        "たらこマヨ"
+      ],
+      "caption": "えびとアボカドは、だいたい仲良し。",
+      "alt": "えびアボカドクレープのクレープ写真",
+      "order": 4
+    },
+    {
+      "id": "05-sausage-cheese",
+      "name": "ソーセージチーズクレープ",
+      "category": "お食事系",
+      "image": "images/05_ソーセージチーズ.png",
+      "ingredients": [
+        "ソーセージ",
+        "チーズ"
+      ],
+      "optional": [
+        "きのこ",
+        "ほうれん草"
+      ],
+      "caption": "しっかり食べたい人はこちら。",
+      "alt": "ソーセージチーズクレープのクレープ写真",
+      "order": 5
+    },
+    {
+      "id": "06-bacon-mushroom",
+      "name": "ベーコンきのこクレープ",
+      "category": "アレンジ系",
+      "image": "images/06_ベーコンきのこ.png",
+      "ingredients": [
+        "ベーコン",
+        "きのこ"
+      ],
+      "optional": [
+        "ほうれん草",
+        "チーズ"
+      ],
+      "caption": "洋風な顔をした、おうちの味。",
+      "alt": "ベーコンきのこクレープのクレープ写真",
+      "order": 6
+    },
+    {
+      "id": "07-tandoori",
+      "name": "タンドリーチキンクレープ",
+      "category": "お食事系",
+      "image": "images/07_タンドリーチキン.png",
+      "ingredients": [
+        "タンドリーチキン",
+        "レタス"
+      ],
+      "optional": [
+        "クリームチーズ"
+      ],
+      "caption": "スパイス、少し張り切りすぎました。",
+      "alt": "タンドリーチキンクレープのクレープ写真",
+      "order": 7
+    },
+    {
+      "id": "08-tacos",
+      "name": "タコスクレープ",
+      "category": "アレンジ系",
+      "image": "images/08_タコスミート.png",
+      "ingredients": [
+        "タコスミート",
+        "サルサ",
+        "レタス"
+      ],
+      "optional": [
+        "チーズ"
+      ],
+      "caption": "タコスなの？ クレープなの？ まあ、おいしい。",
+      "alt": "タコスクレープのクレープ写真",
+      "order": 8
+    },
+    {
+      "id": "09-mushroom-cream",
+      "name": "きのこクリームクレープ",
+      "category": "アレンジ系",
+      "image": "images/09_きのこクリーム.png",
+      "ingredients": [
+        "きのこ",
+        "クリームソース"
+      ],
+      "optional": [
+        "ほうれん草"
+      ],
+      "caption": "きのこが主役の日もある。",
+      "alt": "きのこクリームクレープのクレープ写真",
+      "order": 9
+    },
+    {
+      "id": "10-brie",
+      "name": "ブリーチーズクレープ",
+      "category": "アレンジ系",
+      "image": "images/10_ブリーチーズ.png",
+      "ingredients": [
+        "ブリーチーズ"
+      ],
+      "optional": [
+        "スモークサーモン"
+      ],
+      "caption": "ちょっぴり気取ってみました。",
+      "alt": "ブリーチーズクレープのクレープ写真",
+      "order": 10
+    },
+    {
+      "id": "11-tarako",
+      "name": "たらこ和風クレープ",
+      "category": "アレンジ系",
+      "image": "images/11_たらこ和風クレープ.png",
+      "ingredients": [
+        "たらこマヨ"
+      ],
+      "optional": [
+        "紫蘇",
+        "きゅうり"
+      ],
+      "caption": "和風も意外といけるんです。",
+      "alt": "たらこ和風クレープのクレープ写真",
+      "order": 11
+    },
+    {
+      "id": "12-avocado-cheese",
+      "name": "アボカドクリームチーズクレープ",
+      "category": "アレンジ系",
+      "image": "images/12_アボカドクリームチーズ.png",
+      "ingredients": [
+        "アボカド",
+        "クリームチーズ"
+      ],
+      "optional": [],
+      "caption": "まろやか同士、意気投合。",
+      "alt": "アボカドクリームチーズクレープのクレープ写真",
+      "order": 12
+    },
+    {
+      "id": "13-tropical",
+      "name": "トロピカルチョコクレープ",
+      "category": "デザート系",
+      "image": "images/13_トロピカルチョコ.png",
+      "ingredients": [
+        "パイナップル",
+        "キウイ",
+        "ホイップ"
+      ],
+      "optional": [
+        "チョコソース"
+      ],
+      "caption": "気分だけでも南国へ。",
+      "alt": "トロピカルチョコクレープのクレープ写真",
+      "order": 13
+    },
+    {
+      "id": "14-banana-choco",
+      "name": "バナナチョコクレープ",
+      "category": "デザート系",
+      "image": "images/14_バナナチョコ.png",
+      "ingredients": [
+        "バナナ",
+        "ホイップ",
+        "チョコソース"
+      ],
+      "optional": [],
+      "caption": "王道には理由がある。",
+      "alt": "バナナチョコクレープのクレープ写真",
+      "order": 14
+    },
+    {
+      "id": "15-kiwi-pine",
+      "name": "キウイパインホイップ",
+      "category": "デザート系",
+      "image": "images/15_キウイパイン.png",
+      "ingredients": [
+        "キウイ",
+        "パイナップル",
+        "ホイップ"
+      ],
+      "optional": [
+        "チョコソース"
+      ],
+      "caption": "さっぱり派も、甘いもの派も。",
+      "alt": "キウイパインホイップのクレープ写真",
+      "order": 15
+    }
+  ]
+}
