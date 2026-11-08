@@ -61,8 +61,8 @@ format:
     <section class="home-special-area" aria-labelledby="home-special-title">
       <a class="home-special" href="special/crepe-party-autumn26/">
         <span class="home-special-media">
-          <img src="special/crepe-party-autumn26/images/15_キウイパイン.png"
-               alt="キウイとパイナップルのクレープ"
+          <img src="assets/Dancing Chicken with Strawberry Crepe.png"
+               alt="Dancing Chicken with Strawberry Crepe"
                width="680" height="700" loading="lazy" />
         </span>
         <span class="home-special-content">
