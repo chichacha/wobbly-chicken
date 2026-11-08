@@ -99,6 +99,7 @@ format:
       <p class="gallery-status" id="gallery-status" role="status" aria-live="polite">写真を準備しています… 🥞</p>
       <div id="crepe-cards" class="crepe-grid"></div>
       <p class="gallery-footnote">※ 組み合わせはアイデアです。具材はその日の気分でどうぞ。</p>
+      <p class="gallery-footnote"><a href="behind-the-scenes.html">✳ パーティーの舞台裏とリンク集をのぞく →</a></p>
     </section>
 
     <section class="crepe-goodbye">
