@@ -426,3 +426,87 @@ body.atsuko-print-page { background: #eae7e1; color: #111; }
   object-fit: contain;
   display: block;
 }
+
+/* Homepage feature: Autumn crepe party.
+   Scoped to the homepage so the special page keeps its own styling. */
+.home-special-area {
+  padding: 8px 20px 58px;
+  background: var(--paper);
+}
+.home-special {
+  width: min(810px, 100%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 235px) minmax(0, 1fr);
+  overflow: hidden;
+  border: 2px solid #e3c29e;
+  border-radius: 27px 18px 29px 17px;
+  background: var(--white);
+  color: var(--ink);
+  text-decoration: none;
+  box-shadow: 3px 5px 0 rgba(155,95,45,.10), 0 12px 28px rgba(88,42,21,.06);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.home-special:hover {
+  color: var(--ink);
+  transform: translateY(-3px);
+  box-shadow: 3px 8px 0 rgba(155,95,45,.10), 0 16px 32px rgba(88,42,21,.08);
+}
+.home-special-media {
+  display: block;
+  min-width: 0;
+  background: #fff0d8;
+}
+.home-special-media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 220px;
+  object-fit: cover;
+}
+.home-special-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 10px;
+  min-width: 0;
+  padding: 25px 28px;
+}
+.home-special-label {
+  color: var(--red);
+  font-size: .73rem;
+  font-weight: 900;
+  letter-spacing: .06em;
+}
+.home-special-title {
+  font-size: clamp(1.35rem, 2.8vw, 1.85rem);
+  line-height: 1.35;
+  font-weight: 900;
+}
+.home-special-description {
+  color: var(--ink-soft);
+  font-size: .88rem;
+  line-height: 1.8;
+}
+.home-special-cta {
+  display: inline-block;
+  margin-top: 4px;
+  padding: 9px 17px;
+  border-radius: 100px;
+  background: var(--yellow);
+  color: var(--ink);
+  font-size: .83rem;
+  font-weight: 900;
+}
+@media (max-width: 600px) {
+  .home-special-area { padding: 0 16px 44px; }
+  .home-special { grid-template-columns: minmax(0, 1fr); }
+  .home-special-media img { height: 180px; min-height: 0; object-position: center; }
+  .home-special-content { padding: 20px; gap: 8px; }
+  .home-special-title { font-size: 1.4rem; }
+  .home-special-cta { margin-top: 2px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .home-special { transition: none; }
+}
