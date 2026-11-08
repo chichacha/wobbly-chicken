@@ -58,6 +58,22 @@ format:
       </div>
     </section>
 
+    <section class="home-special-area" aria-labelledby="home-special-title">
+      <a class="home-special" href="special/crepe-party-autumn26/">
+        <span class="home-special-media">
+          <img src="special/crepe-party-autumn26/images/15_キウイパイン.png"
+               alt="キウイとパイナップルのクレープ"
+               width="680" height="700" loading="lazy" />
+        </span>
+        <span class="home-special-content">
+          <span class="home-special-label">✨ 今回の特集 · 2026 AUTUMN</span>
+          <span id="home-special-title" class="home-special-title">🥞 クレープパーティー</span>
+          <span class="home-special-description">甘いのも、しょっぱいのも。15種類のクレープをのぞいてみよう！</span>
+          <span class="home-special-cta">特集を見る <span aria-hidden="true">→</span></span>
+        </span>
+      </a>
+    </section>
+
     <section id="menu" class="menu-area" aria-labelledby="menu-title">
       <div class="section-intro">
         <span class="section-tag">WHAT'S COOKING?</span>
