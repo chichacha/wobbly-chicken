@@ -5,6 +5,9 @@ project:
     - data/*.csv
     - js/*.js
     - assets/*.png
+    - special/crepe-party-autumn26/data/*.json
+    - special/crepe-party-autumn26/images/*.png
+    - special/crepe-party-autumn26/crepe-party.js
 
 website:
   title: "居酒家あつこ"

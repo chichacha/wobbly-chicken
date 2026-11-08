@@ -1,0 +1,139 @@
+---
+title: "出張あつこ | クレープパーティー特集"
+lang: ja
+format:
+  html:
+    minimal: true
+    toc: false
+    css: crepe-party.css
+    title-block-style: none
+    title-block: false
+    page-layout: full
+---
+
+```{=html}
+<div class="crepe-site" id="top">
+  <a class="skip-link" href="#crepe-gallery">クレープギャラリーへ移動</a>
+  <header class="crepe-header">
+    <a class="crepe-brand" href="../../index.html" aria-label="居酒家あつこのホームへ">
+      <img src="../../assets/favicon.png" alt="" width="40" height="40">
+      <span>居酒家 <strong>あつこ</strong></span>
+    </a>
+    <nav aria-label="特集ナビゲーション" class="crepe-topnav">
+      <a href="#story">クレープの作り方</a>
+      <a href="#crepe-gallery">15種類を見る</a>
+      <a href="../../index.html">お品書きへ ↗</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="crepe-hero" aria-labelledby="crepe-title">
+      <div class="hero-copy">
+        <p class="crepe-eyebrow">🧳 出張あつこ ・ 2026 AUTUMN SPECIAL</p>
+        <h1 id="crepe-title">今日は、<br><span>クレープ</span>を<br>包みます。</h1>
+        <p class="hero-tag">🥞 出張あつこ：クレープパーティー</p>
+        <p class="hero-description">甘いのも、しょっぱいのも。<br>好きな具を選んで、くるっと包んで。<br>どれにするか、まずは眺めてみよう。</p>
+        <a href="#crepe-gallery" class="hero-action">クレープを選ぶ <span aria-hidden="true">↓</span></a>
+      </div>
+      <figure class="hero-photo">
+        <img src="images/15_キウイパイン.png" width="680" height="700" alt="キウイとパイナップル、ホイップのクレープ" fetchpriority="high">
+        <figcaption>今日の主役は、たぶん15人。</figcaption>
+      </figure>
+      <span class="hero-doodle" aria-hidden="true">✳</span>
+    </section>
+
+    <section id="story" class="crepe-story" aria-labelledby="story-heading">
+      <div class="story-intro">
+        <p class="crepe-eyebrow">ちいさなクレープ研究所</p>
+        <h2 id="story-heading">包むまでが、<br>パーティーです。</h2>
+        <p>スクロールしながら、クレープができるまでをのぞいてみてね。</p>
+      </div>
+      <div class="story-layout">
+        <div class="story-sticky" aria-hidden="true">
+          <div class="crepe-stage" id="crepe-stage" data-step="0">
+            <span class="stage-spark stage-spark--one">✦</span>
+            <span class="stage-spark stage-spark--two">✳</span>
+            <div class="stage-plate">
+              <div class="stage-batter"></div>
+              <div class="stage-fill">🥬 🍓 🧀</div>
+              <div class="stage-fold">🥞</div>
+            </div>
+            <p class="stage-label" id="stage-label">まずは、材料を並べます。</p>
+          </div>
+        </div>
+        <ol class="story-steps">
+          <li class="story-step" data-step="0">
+            <span class="step-number">01</span>
+            <h3>材料をそろえる</h3>
+            <p>お食事系もデザート系も。冷蔵庫と相談して、まずは集合！</p>
+          </li>
+          <li class="story-step" data-step="1">
+            <span class="step-number">02</span>
+            <h3>組み合わせを考える</h3>
+            <p>アボカドも、サーモンも、バナナも。自由すぎるくらいが、ちょうどいい。</p>
+          </li>
+          <li class="story-step" data-step="2">
+            <span class="step-number">03</span>
+            <h3>くるっと包む</h3>
+            <p>きれいに包めなくても大丈夫。味は、だいたい変わりません。</p>
+          </li>
+          <li class="story-step" data-step="3">
+            <span class="step-number">04</span>
+            <h3>みんなで、いただきます！</h3>
+            <p>完成したら、写真を一枚。食べるまで待てない人もいます。🍶</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="gallery-section" id="crepe-gallery" aria-labelledby="gallery-heading">
+      <div class="gallery-heading">
+        <div>
+          <p class="crepe-eyebrow">THE CREPE COLLECTION</p>
+          <h2 id="gallery-heading">あつこの<span>クレープ図鑑</span></h2>
+          <p>画像をタップすると大きく見られます。<br>甘い派？ お食事派？ それとも全部？</p>
+        </div>
+        <span class="gallery-sticker" aria-hidden="true">気まぐれ<br>15品！</span>
+      </div>
+      <div id="crepe-filters" class="crepe-filters" role="group" aria-label="クレープをカテゴリーで絞り込む"></div>
+      <p class="gallery-status" id="gallery-status" role="status" aria-live="polite">写真を準備しています… 🥞</p>
+      <div id="crepe-cards" class="crepe-grid"></div>
+      <p class="gallery-footnote">※ 組み合わせはアイデアです。具材はその日の気分でどうぞ。</p>
+    </section>
+
+    <section class="crepe-goodbye">
+      <div class="goodbye-stamp" aria-hidden="true">あ！</div>
+      <p class="crepe-eyebrow">THANKS FOR COMING</p>
+      <h2>おいしかったら、<br>それで大成功。</h2>
+      <p>また何か包む日が来るかも。次は餃子？</p>
+      <a href="../../index.html">🏮 居酒家あつこに戻る →</a>
+    </section>
+  </main>
+
+  <footer class="crepe-footer">
+    <span>居酒家あつこ ・ 小さなお店に、小さな遊び心。</span>
+    <a href="#top">上にもどる ↑</a>
+  </footer>
+
+  <div class="crepe-viewer" id="crepe-viewer" role="dialog" aria-modal="true" aria-labelledby="viewer-title" hidden>
+    <div class="viewer-panel">
+      <button class="viewer-close" id="viewer-close" type="button" aria-label="写真を閉じる">×</button>
+      <figure>
+        <img id="viewer-image" src="" alt="">
+      </figure>
+      <div class="viewer-info">
+        <p class="crepe-eyebrow" id="viewer-category"></p>
+        <h2 id="viewer-title"></h2>
+        <p id="viewer-caption"></p>
+        <div id="viewer-ingredients" class="viewer-ingredients"></div>
+        <div class="viewer-nav">
+          <button type="button" id="viewer-prev" aria-label="前のクレープ">← 前へ</button>
+          <span id="viewer-position"></span>
+          <button type="button" id="viewer-next" aria-label="次のクレープ">次へ →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="crepe-party.js" defer></script>
+```
