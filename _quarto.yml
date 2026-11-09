@@ -14,6 +14,9 @@ project:
     - special/crepe-party-autumn26/crepe_party_atsuko.*
     - special/crepe-party-autumn26/crepe_party_photo.html
     - special/crepe-party-autumn26/behind-the-scenes.*
+    # Copy standalone HTML/CSS/JS/images for family-created event pages.
+    # Source files live in events/; docs/ is generated output.
+    - events/**
 
 website:
   title: "居酒家あつこ"
