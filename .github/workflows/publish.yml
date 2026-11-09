@@ -28,6 +28,10 @@ jobs:
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
 
+      - name: Remove checked-in output before rendering
+        # Ensures CI checks a clean build, not stale files committed under docs/.
+        run: rm -rf docs
+
       - name: Render website
         run: quarto render
 
