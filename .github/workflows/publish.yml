@@ -49,15 +49,14 @@ jobs:
             docs/special/crepe-party-autumn26/tv.html \
             docs/special/crepe-party-autumn26/crepe_party_photo.html \
             docs/special/crepe-party-autumn26/crepe_party_atsuko.html \
-            docs/special/crepe-party-autumn26/behind-the-scenes.html \
-            docs/events/sample-party/index.html; do
+            docs/special/crepe-party-autumn26/behind-the-scenes.html; do
             if [[ ! -f "$required" ]]; then
               echo "::error::Missing rendered page: $required"
               exit 1
             fi
           done
 
-          # Check every event folder that has an index.html source.
+          # Check all event files, including any separately uploaded CSS, JS and images.
           while IFS= read -r -d '' source; do
             target="docs/$source"
             if [[ ! -f "$target" ]]; then
@@ -65,11 +64,11 @@ jobs:
               exit 1
             fi
             if ! cmp -s "$source" "$target"; then
-              echo "::error::Event HTML changed during copy: $source"
+              echo "::error::Event file changed during copy: $source"
               exit 1
             fi
             echo "OK: $source"
-          done < <(find events -type f -name index.html -print0)
+          done < <(find events -type f ! -name README.md ! -name '.*' -print0)
 
           echo "Website and event pages verified."
 
