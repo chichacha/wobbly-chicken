@@ -1,0 +1,99 @@
+# Build Quarto and publish the result directly to GitHub Pages.
+# One-time repository setting: Settings > Pages > Source = GitHub Actions.
+# PRs only build/validate; production deployment runs after merge to main.
+name: Publish Wobbly Chicken
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pages-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: Build and check website
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+
+      - name: Set up Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+
+      - name: Remove checked-in output before rendering
+        # Ensures CI checks a clean build, not stale files committed under docs/.
+        run: rm -rf docs
+
+      - name: Render website
+        run: quarto render
+
+      - name: Verify key pages and event resources
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          # Protect existing routes when switching from main/docs to an Actions artifact.
+          for required in \
+            docs/index.html \
+            docs/archive.html \
+            docs/print.html \
+            docs/special/crepe-party-autumn26/index.html \
+            docs/special/crepe-party-autumn26/tv.html \
+            docs/special/crepe-party-autumn26/crepe_party_photo.html \
+            docs/special/crepe-party-autumn26/crepe_party_atsuko.html \
+            docs/special/crepe-party-autumn26/behind-the-scenes.html; do
+            if [[ ! -f "$required" ]]; then
+              echo "::error::Missing rendered page: $required"
+              exit 1
+            fi
+          done
+
+          # Check all event files, including any separately uploaded CSS, JS and images.
+          while IFS= read -r -d '' source; do
+            target="docs/$source"
+            if [[ ! -f "$target" ]]; then
+              echo "::error::Event not copied: $source"
+              exit 1
+            fi
+            if ! cmp -s "$source" "$target"; then
+              echo "::error::Event file changed during copy: $source"
+              exit 1
+            fi
+            echo "OK: $source"
+          done < <(find events -type f ! -name README.md ! -name '.*' -print0)
+
+          echo "Website and event pages verified."
+
+      - name: Upload generated site for GitHub Pages
+        if: github.event_name != 'pull_request'
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: docs
+
+  deploy:
+    name: Publish website
+    if: github.event_name != 'pull_request'
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

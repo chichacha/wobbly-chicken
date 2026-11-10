@@ -90,6 +90,20 @@ quarto render
 
 完成したファイルは `docs/` に出力されます。
 
+### 🎉 イベントページを自分で公開するには
+
+特別イベントは `events/<イベント名>/index.html` に置きます。AIが作ったHTMLファイルだけでもOK！
+
+GitHubでの詳しい操作は **[イベントページの作り方（日本語）](events/README.md)** を参照。
+
+**公開の流れ：** `main` を更新 → GitHub Actions（`Publish Wobbly Chicken`）がQuartoをレンダリング → GitHub Pagesへ自動公開。
+
+- `events/` がHTMLの原本。**`docs/` は生成物なので直接編集しません。**
+- GitHub Pagesの **Settings → Pages → Source** は最初の1回だけ **GitHub Actions** に切り替える必要があります。
+- トップページにリンクがなくても、`/events/<イベント名>/` のURLを直接シェアできます。
+- PR時はレンダリングと確認のみ実行し、`main` へのマージ後に本番公開します。
+
+
 ### テスト
 
 ```bash
